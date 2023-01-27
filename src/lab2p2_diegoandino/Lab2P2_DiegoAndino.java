@@ -37,16 +37,65 @@ public class Lab2P2_DiegoAndino {
                     op = leer.nextInt();
 
                     if (op == 1) {
-                        System.out.println("Ingrese una casas: ");
+                        int ops;
+                        System.out.println("1 <- casa\n"
+                                + "2 <- edificio\n"
+                                + "3 <- solares");
+                        System.out.println("Ingres opcion:");
+                        ops = leer.nextInt();
 
+                        if (ops == 1) {
+                            lista.add(casa());
+                        }
+                        if (ops == 2) {
+                            lista.add(edificios());
+                        }
+                        if (ops == 3) {
+                            lista.add(solares());
+                        }
+//------------------------------------------------------------------------------
                     }
                     if (op == 2) {
+                        System.out.println(lista);
+                        int ops;
+                        System.out.println("1 <- casa\n"
+                                + "2 <- edificio\n"
+                                + "3 <- solares");
+                        System.out.println("Ingres opcion:");
+                        ops = leer.nextInt();
+                        if (ops == 1) {
+                            for (Object t : lista) {
+                                if (t instanceof Casas) {
+                                    System.out.println("" + lista.indexOf(t) + "- " + t + "\n");
+                                }
+
+                            }
+                        }
+                        if (ops == 2) {
+                            for (Object t : lista) {
+                                if (t instanceof Edificios) {
+                                    System.out.println("" + lista.indexOf(t) + "- " + t + "\n");
+                                }
+
+                            }
+                        }
+                        if (ops == 3) {
+                            for (Object t : lista) {
+                                if (t instanceof Solares) {
+                                    System.out.println("" + lista.indexOf(t) + "- " + t + "\n");
+                                }
+
+                            }
+                        }
 
                     }
+//------------------------------------------------------------------------------
                     if (op == 3) {
 
                     }
+
                     if (op == 4) {
+                       
 
                     }
                     if (op == 5) {
@@ -110,17 +159,16 @@ public class Lab2P2_DiegoAndino {
         System.out.println("Ingrese ancho");
         direccion = leer.next();
 
-
         retorno = new Edificios(piso, locales, direccion);
         return retorno;
 
     }
-    
-     static Solares solares() {
+
+    static Solares solares() {
         int largo;
-     int ancho;
-     int area;
-     String dueño;
+        int ancho;
+        int area;
+        String dueño;
 
         Solares retorno;
         System.out.println("Ingrese largo");
@@ -129,14 +177,12 @@ public class Lab2P2_DiegoAndino {
         ancho = leer.nextInt();
         System.out.println("Ingrese area");
         area = leer.nextInt();
-         System.out.println("Ingrese dueño");
-         dueño = leer.next();
-
+        System.out.println("Ingrese dueño");
+        dueño = leer.next();
 
         retorno = new Solares(largo, ancho, area, dueño);
         return retorno;
 
     }
-    
-    
+
 }
