@@ -41,6 +41,7 @@ public class Edificios {
     public String toString(){
         return "piso: " + piso + " locales: " + locales + " Dirrecion: " + direccion ;
     }
+    
 
     
 }
