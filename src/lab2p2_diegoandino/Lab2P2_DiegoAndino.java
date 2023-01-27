@@ -1,7 +1,9 @@
 package lab2p2_diegoandino;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JColorChooser;
 
 public class Lab2P2_DiegoAndino {
 
@@ -33,25 +35,23 @@ public class Lab2P2_DiegoAndino {
                     System.out.println("-------------------------------------");
 
                     op = leer.nextInt();
-                    
+
                     if (op == 1) {
-                        System.out.println("Ingrese Una casas: ");
-                        
+                        System.out.println("Ingrese una casas: ");
+
                     }
                     if (op == 2) {
-                        
+
                     }
                     if (op == 3) {
-                        
+
                     }
                     if (op == 4) {
-                        
+
                     }
                     if (op == 5) {
-                        
+
                     }
-                    
-                    
 
                 } while (op != 6);
 //------------------------------------------------------------------------------
@@ -68,4 +68,75 @@ public class Lab2P2_DiegoAndino {
 
     }
 
+    static Casas casa() {
+        String casa;
+        int bloque;
+        Color color;
+        int ancho;
+        int largo;
+        int baños;
+        int cuartos;
+
+        Casas retorno;
+        System.out.println("Ingrese casa:");
+        casa = leer.next();
+        System.out.println("Ingrese bloque");
+        bloque = leer.nextInt();
+        color = JColorChooser.showDialog(null, "Seleccione color", Color.BLACK);
+        System.out.println("Ingrese ancho");
+        ancho = leer.nextInt();
+        System.out.println("Ingrese largo");
+        largo = leer.nextInt();
+        System.out.println("Ingrese baños");
+        baños = leer.nextInt();
+        System.out.println("Ingrese cuartos");
+        cuartos = leer.nextInt();
+
+        retorno = new Casas(casa, bloque, color, ancho, largo, baños, cuartos);
+        return retorno;
+
+    }
+
+    static Edificios edificios() {
+        int piso;
+        int locales;
+        String direccion;
+
+        Edificios retorno;
+        System.out.println("Ingrese piso");
+        piso = leer.nextInt();
+        System.out.println("Ingrese locales");
+        locales = leer.nextInt();
+        System.out.println("Ingrese ancho");
+        direccion = leer.next();
+
+
+        retorno = new Edificios(piso, locales, direccion);
+        return retorno;
+
+    }
+    
+     static Solares solares() {
+        int largo;
+     int ancho;
+     int area;
+     String dueño;
+
+        Solares retorno;
+        System.out.println("Ingrese largo");
+        largo = leer.nextInt();
+        System.out.println("Ingrese ancho");
+        ancho = leer.nextInt();
+        System.out.println("Ingrese area");
+        area = leer.nextInt();
+         System.out.println("Ingrese dueño");
+         dueño = leer.next();
+
+
+        retorno = new Solares(largo, ancho, area, dueño);
+        return retorno;
+
+    }
+    
+    
 }
