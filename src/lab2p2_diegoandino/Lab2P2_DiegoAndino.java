@@ -100,6 +100,13 @@ public class Lab2P2_DiegoAndino {
                     }
 
                     if (op == 4) {
+                        int p = 0;
+                            do {
+                                System.out.println("Posicion de lo que desea borrar :");
+                                p = leer.nextInt();
+                            } while (p < 0 || p > lista.size());
+
+                            lista.remove(p - 1);
 
                     }
                     if (op == 5) {
