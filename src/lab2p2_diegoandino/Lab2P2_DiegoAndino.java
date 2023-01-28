@@ -11,6 +11,12 @@ public class Lab2P2_DiegoAndino {
     static int llave = 0;
 
     public static void main(String[] args) {
+        
+        
+        // NO VERIFIQIE SI ERA EL ADMIN, NO HICE EL MANEJO DE ESTADO, Y NO HICE EL MODIFICADOR..
+        //TE SALVO EL TIEMPO
+        
+        
         Users usuario = new Users();
         String User = "Admin";
         ArrayList lista = new ArrayList();
@@ -25,9 +31,9 @@ public class Lab2P2_DiegoAndino {
                     + "3 <- Log In/Sign Up\n"
                     + "4 <- Salir");
             opcion = leer.nextInt();
-
-            if (opcion == 1) {
 //------------------------------------------------------------------------------
+            if (opcion == 1) {
+
                 int op;
 
                 do {
@@ -96,30 +102,97 @@ public class Lab2P2_DiegoAndino {
                     }
 
                     if (op == 3) {
+                        System.out.println("1 <- Casas\n"
+                                + "2 <- Edificios\n"
+                                + "3 <- Solares");
+                        System.out.println("Ingrese que quiere modificar");
+                        int opxion = leer.nextInt();
+                        
+                        if (opxion == 1) {
+                            
+                        }
+                        if (opxion == 2) {
+                            
+                        }
+                        if (opxion == 3) {
+                            
+                        }
+                        
+                        
+
+                        
 
                     }
-
+//..............................................................................
                     if (op == 4) {
                         int p = 0;
-                            do {
-                                System.out.println("Posicion de lo que desea borrar :");
-                                p = leer.nextInt();
-                            } while (p < 0 || p > lista.size());
+                        do {
+                            System.out.println("Posicion de lo que desea borrar desde 0:");
+                            p = leer.nextInt();
+                        } while (p < 0 || p > lista.size());
 
-                            lista.remove(p - 1);
+                        lista.remove(p);
 
                     }
                     if (op == 5) {
+                        System.out.println("1 <- Casas\n"
+                                + "2 <- Edificios\n"
+                                + "3 <- Solares");
+                        System.out.println("Ingrese lo que quiere comprar comprar: ");
+                        int opziones = leer.nextInt();
+
+                        if (opziones == 1) {
+                            for (Object t : lista) {
+                                if (t instanceof Casas) {
+                                    System.out.println("" + lista.indexOf(t) + "- " + t + "\n");
+                                }
+
+                            }
+                            System.out.println("Posicion a comprar: ");
+                            int x = leer.nextInt();
+                            System.out.println("VEndido a: ");
+                            leer.nextLine();
+                            String owner = leer.nextLine();
+                            ((Casas) lista.get(x)).setDueño(owner);
+
+                        } else if (opziones == 2) {
+                            for (Object t : lista) {
+                                if (t instanceof Edificios) {
+                                    System.out.println("" + lista.indexOf(t) + "- " + t + "\n");
+                                }
+
+                            }
+                            System.out.println("Posicion a comprar: ");
+                            int x = leer.nextInt();
+                            System.out.println("Vendino a: ");
+                            leer.nextLine();
+                            String owner = leer.nextLine();
+                            ((Edificios) lista.get(x)).setDueño(owner);
+
+                        } else if (opziones == 3) {
+                            for (Object t : lista) {
+                                if (t instanceof Solares) {
+                                    System.out.println("" + lista.indexOf(t) + "- " + t + "\n");
+                                }
+
+                            }
+                            System.out.println("Posicion a comprar: ");
+                            int x = leer.nextInt();
+                            System.out.println("Vendido a: ");
+                            leer.nextLine();
+                            String owner = leer.nextLine();
+                            ((Solares) lista.get(x)).setDueño(owner);
+                        }
 
                     }
 
                 } while (op != 6);
-//------------------------------------------------------------------------------
             }
-
+//------------------------------------------------------------------------------
             if (opcion == 2) {
 
             }
+//------------------------------------------------------------------------------
             if (opcion == 3) {
                 int opsi;
 
@@ -181,6 +254,8 @@ public class Lab2P2_DiegoAndino {
         int largo;
         int baños;
         int cuartos;
+        String estado;
+        String dueño;
 
         Casas retorno;
         System.out.println("Ingrese casa:");
@@ -196,8 +271,12 @@ public class Lab2P2_DiegoAndino {
         baños = leer.nextInt();
         System.out.println("Ingrese cuartos");
         cuartos = leer.nextInt();
+        System.out.println("Ingrese estado");
+        estado = leer.next();
+        System.out.println("Ingrese dueño");
+        dueño = leer.next();
 
-        retorno = new Casas(casa, bloque, color, ancho, largo, baños, cuartos);
+        retorno = new Casas(casa, bloque, color, ancho, largo, baños, cuartos, estado, dueño);
         return retorno;
 
     }
@@ -206,6 +285,8 @@ public class Lab2P2_DiegoAndino {
         int piso;
         int locales;
         String direccion;
+        String estado;
+        String dueño;
 
         Edificios retorno;
         System.out.println("Ingrese piso");
@@ -214,8 +295,12 @@ public class Lab2P2_DiegoAndino {
         locales = leer.nextInt();
         System.out.println("Ingrese ancho");
         direccion = leer.next();
+        System.out.println("Ingrese estado");
+        estado = leer.next();
+        System.out.println("Ingrese dueño");
+        dueño = leer.next();
 
-        retorno = new Edificios(piso, locales, direccion);
+        retorno = new Edificios(piso, locales, direccion, estado, dueño);
         return retorno;
 
     }
@@ -225,6 +310,7 @@ public class Lab2P2_DiegoAndino {
         int ancho;
         int area;
         String dueño;
+        String estado;
 
         Solares retorno;
         System.out.println("Ingrese largo");
@@ -235,10 +321,14 @@ public class Lab2P2_DiegoAndino {
         area = leer.nextInt();
         System.out.println("Ingrese dueño");
         dueño = leer.next();
+        System.out.println("Ingrese estado");
+        estado = leer.next();
+        
 
-        retorno = new Solares(largo, ancho, area, dueño);
+        retorno = new Solares(largo, ancho, area, dueño, estado);
         return retorno;
 
     }
+    
 
 }

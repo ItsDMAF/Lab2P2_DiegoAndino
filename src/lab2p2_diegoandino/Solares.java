@@ -7,12 +7,14 @@ public class Solares {
     private int ancho;
     private int area;
     private String dueño;
+    private String estado;
     
-    public Solares(int largo, int ancho, int area, String dueño){
+    public Solares(int largo, int ancho, int area, String dueño, String estado){
         this.largo = largo;
         this.ancho = ancho;
         this.area = area;
         this.dueño = dueño;  
+        this.estado = estado;
     }
 
     public int getLargo() {
@@ -46,10 +48,19 @@ public class Solares {
     public void setDueño(String dueño) {
         this.dueño = dueño;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     
     public String toString(){
-        return "Largo: " + largo + "Ancho: " + ancho + 
-                "Area: " + area + "Dueño: " + dueño;
+        return "Largo: " + largo + " Ancho: " + ancho + 
+                " Area: " + area + " Dueño: " + dueño + " estados: " + estado;
     }
    
     

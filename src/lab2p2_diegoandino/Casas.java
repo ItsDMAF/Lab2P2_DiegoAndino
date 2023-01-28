@@ -12,10 +12,12 @@ public class Casas {
     private int largo;
     private int baños;
     private int cuartos;
+    private String estado;
+    private String dueño;
     
     public Casas(String casa, int bloque, 
             Color color, int ancho, int largo, 
-            int baños, int cuartos ){
+            int baños, int cuartos, String estado, String dueño){
         
         this.casa = casa;
         this.bloque = bloque;
@@ -23,7 +25,10 @@ public class Casas {
         this.ancho = ancho;
         this.largo = largo;
         this.baños = baños;
-        this.cuartos = cuartos;    
+        this.cuartos = cuartos;   
+        this.estado = estado;
+        this.dueño = dueño;
+               
     }
 
     public String getCasa() {
@@ -81,12 +86,29 @@ public class Casas {
     public void setCuartos(int cuartos) {
         this.cuartos = cuartos;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getDueño() {
+        return dueño;
+    }
+
+    public void setDueño(String dueño) {
+        this.dueño = dueño;
+    }
+    
     
     public String toString(){
-        return "Casa: " + casa + "Bloque: " + bloque + 
-                "Color: " + color + "Ancho: " + ancho +
-                "Largo: " + largo + "Baños: " + baños +
-                "Cuartos: " + cuartos;
+        return "Casa: " + casa + " Bloque: " + bloque + 
+                " Color: " + color + " Ancho: " + ancho +
+                " Largo: " + largo + " Baños: " + baños +
+                " Cuartos: " + cuartos +  " estado: " + estado + " Dueño: " + dueño;
     }
 
     
