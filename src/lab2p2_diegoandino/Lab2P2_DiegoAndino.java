@@ -8,10 +8,16 @@ import javax.swing.JColorChooser;
 public class Lab2P2_DiegoAndino {
 
     static Scanner leer = new Scanner(System.in);
+    static int llave = 0;
 
     public static void main(String[] args) {
+        Users usuario = new Users();
+        String User = "Admin";
         ArrayList lista = new ArrayList();
+        ArrayList<Users> usuarios = new ArrayList();
+        Users Admin = new Users("Diego", 20, "admin", "admin1234");
         int opcion;
+        usuarios.add(Admin);
 
         do {
             System.out.println("1 <- Registro de Inmueble/Solar \n"
@@ -30,7 +36,7 @@ public class Lab2P2_DiegoAndino {
                             + "2 <- Listar Casas/Edificios/Solares\n"
                             + "3 <- Modificar Casas/Edificios/Solares\n"
                             + "4 <- Borrar Casas/Edificios/Solares\n"
-                            + "5 <- Vender Casas/Edificios/Solares\n"
+                            + "5 <- Comprar Casas/Edificios/Solares\n"
                             + "6 <- Salir");
                     System.out.println("-------------------------------------");
 
@@ -53,7 +59,6 @@ public class Lab2P2_DiegoAndino {
                         if (ops == 3) {
                             lista.add(solares());
                         }
-//------------------------------------------------------------------------------
                     }
                     if (op == 2) {
                         System.out.println(lista);
@@ -89,13 +94,12 @@ public class Lab2P2_DiegoAndino {
                         }
 
                     }
-//------------------------------------------------------------------------------
+
                     if (op == 3) {
 
                     }
 
                     if (op == 4) {
-                       
 
                     }
                     if (op == 5) {
@@ -110,9 +114,54 @@ public class Lab2P2_DiegoAndino {
 
             }
             if (opcion == 3) {
+                int opsi;
+
+                do {
+                    System.out.println("Menu user\n"
+                            + "1 <- Crear Usuario\n"
+                            + "2 <- Iniciar Sesion\n"
+                            + "3 <- Log out\n"
+                            + "4 <- Salir");
+                    System.out.println("Ingrese su opcion: ");
+                    opsi = leer.nextInt();
+
+                    if (opsi == 1) {
+                        System.out.println("Ingrese su nombre: ");
+                        leer.nextLine();
+                        String nombre = leer.next();
+
+                        System.out.println("Ingrese el nombre de usuario: ");
+                        leer.nextLine();
+                        String usuari = leer.next();
+
+                        System.out.println("Ingrese su contraseña: ");
+                        leer.nextLine();
+                        String pass = leer.next();
+
+                        System.out.println("Ingrese la edad del usuario: ");
+                        int edad = leer.nextInt();
+
+                        usuarios.add(new Users(nombre, edad, usuari, pass));
+                    }
+                    if (opsi == 2) {
+                        System.out.println("nombre de usuario: ");
+                        leer.nextLine();
+                        String user = leer.next();
+                        System.out.println("la contraseña: ");
+                        leer.nextLine();
+                        String contra = leer.next();
+                        System.out.println("Sesion iniciada...");
+
+                    }
+                    if (opsi == 3) {
+                        llave--;
+                        System.out.println("Sesion a terminado");
+
+                    }
+
+                } while (opsi != 4);
 
             }
-
         } while (opcion != 4);
 
     }
